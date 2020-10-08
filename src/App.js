@@ -4,7 +4,9 @@ import { API } from 'aws-amplify'
 // import query definition
 import { listPosts } from './graphql/queries'
 
-export default function App() {
+import { withAuthenticator } from '@aws-amplify/ui-react'
+
+function App() {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     fetchPosts();
@@ -31,3 +33,5 @@ export default function App() {
     </div>
   )
 }
+
+export default withAuthenticator(App)
